@@ -62,6 +62,12 @@ jobs:
       - name: Package
         run: mvn package
 
+      - name: Save artifact
+        uses: actions/upload-artifact@v2
+        with:
+          name: ${{ github.job }}-${{ github.ref_slug }}-${{ github.sha }}
+          path: target/*.war
+
   deploy:
     runs-on: self-hosted
     needs: package
