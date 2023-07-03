@@ -27,11 +27,3 @@ jobs:
 
       - name: Package
         run: mvn package
-
-      - name: Deploy to test
-        if: success()
-        run: |
-          docker rm --force tomcat1
-          docker image rm --force game2048
-          docker build -t game2048 .
-          docker run --rm -d --name tomcat1 -p 8080:8080 game2048
