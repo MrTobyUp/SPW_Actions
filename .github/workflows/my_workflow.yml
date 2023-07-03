@@ -1,13 +1,13 @@
 name: CI
 
-on: self-hosted
+on: push
 
 env:
   maven_packages_cache: ".m2/repository"
 
 jobs:
   build:
-    runs-on: ubuntu-latest
+    runs-on: self-hosted
 
     steps:
       - name: Checkout code
